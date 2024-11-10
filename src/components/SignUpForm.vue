@@ -1,12 +1,8 @@
 <template>
     <div class="daisy-card bg-app-white desktop:daisy-card-side desktop:p-6 desktop:items-center">
         <figure class="desktop:order-last">
-            <img v-if="isDesktop" class="w-full"
-            src="/src/assets/images/illustration-sign-up-desktop.svg"
-             alt="">
-             <img v-else class="w-full"
-            src="/src/assets/images/illustration-sign-up-mobile.svg"
-             alt="">
+            <img v-if="isDesktop" class="w-full" src="/src/assets/images/illustration-sign-up-desktop.svg" alt="">
+            <img v-else class="w-full" src="/src/assets/images/illustration-sign-up-mobile.svg" alt="">
         </figure>
         <div class="daisy-card-body text-app-darkNavy">
             <div class="flex flex-col gap-6">
@@ -24,13 +20,17 @@
             </div>
             <form @submit.prevent="submitEmail" class="flex flex-col gap-6">
                 <label class="daisy-label flex flex-col gap-2 items-start">
-                    <span class="app-text-body-small">Email address</span>
-                    <input name="emailAddr" type="email" placeholder="email@company.com"
-                        class="daisy-input text-app-grey app-text-body border-app-grey border-opacity-25 w-full placeholder:text-opacity-25"
+                    <div class="flex justify-between w-full app-body-small">
+                        <span>Email address</span>
+                        <span aria-live="polite" v-if="emailError" class="text-app-vermellion">{{ emailError }}</span>
+                    </div>
+                    <input name="emailAddr" type="email" placeholder="email@company.com" @input="emailError=null"  @invalid.prevent="invalidEmail"
+                        :class="['daisy-input text-app-grey app-text-body border-app-grey border-opacity-25 w-full placeholder:text-opacity-25',
+                        emailError && 'border-app-vermellion text-app-vermellion bg-app-vermellion/15']"
                         required>
                 </label>
-                <div class="daisy-card-actions"><button type="submit"
-                        class="daisy-btn text-app-white bg-app-darkNavy w-full">Subscribe to monthly
+                <div class="daisy-card-actions"><button type="submit" class="app-button w-full">
+                        Subscribe to monthly
                         newsletter</button></div>
             </form>
         </div>
@@ -40,12 +40,19 @@
 export default {
     inject: ['isDesktop'],
     emits: ['subscribe'],
+    data() {
+        return {
+            emailError: ''
+        }
+    },  
     methods: {
+        invalidEmail(e) {
+            this.emailError = e.target.validationMessage
+        },
         submitEmail(e) {
-            const data=new FormData(e.target)
+            const data = new FormData(e.target)
             this.$emit('subscribe', data.get('emailAddr'))
         }
     },
 }
 </script>
-<style lang="scss" scoped></style>

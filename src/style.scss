@@ -46,3 +46,10 @@
     @apply bg-gradient-to-r from-[#FF6A3A] to-[#FF527B];
   }
 }
+
+@layer components{
+  .app-button{
+    @apply daisy-btn text-app-white bg-app-darkNavy;
+    @apply hover:app-gradient-active hover:shadow-lg hover:shadow-app-vermellion;
+  }
+}

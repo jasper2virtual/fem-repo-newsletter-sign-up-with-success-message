@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="daisy-card-actions">
-                <button class="daisy-btn w-full bg-app-darkNavy text-app-white"
+                <button class="app-button w-full"
                 @click="dissmissMessage">
                     Dismiss message
                 </button>
