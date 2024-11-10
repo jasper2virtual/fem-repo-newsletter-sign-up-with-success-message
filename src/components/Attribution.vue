@@ -1,7 +1,7 @@
 <template>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Jasper Lai</a>.
+    Coded by <a href="https://github.com/jasper2virtual/fem-repo-newsletter-sign-up-with-success-message.git">Jasper Lai</a>.
   </div>
 </template>
 <style lang="scss" scoped>
