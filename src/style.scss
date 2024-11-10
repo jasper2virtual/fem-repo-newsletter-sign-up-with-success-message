@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+
+  html{
+    font-size: 16px;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/src/assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/src/assets/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  
+}
+
+@layer utilities{
+  .app-text-heading{
+    @apply font-roboto font-bold text-[calc(40rem/16)] leading-[100%] tracking-[0px];
+  }
+  @screen desktop{
+    .app-text-heading{
+      @apply text-[calc(56rem/16)];
+    }
+  }
+  .app-text-body{
+    @apply font-roboto font-normal text-base leading-[150%] tracking-[0px];
+  }
+  .app-text-body-bold{
+    @extend .app-text-body;
+    @apply font-bold;
+  }
+  .app-text-body-small{
+    @extend .app-text-body-bold;
+    @apply text-[calc(12rem/16)];
+  }
+
+  .app-gradient-active{
+    @apply bg-gradient-to-r from-[#FF6A3A] to-[#FF527B];
+  }
+}
