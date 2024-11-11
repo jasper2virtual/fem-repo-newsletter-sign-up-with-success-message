@@ -1,10 +1,10 @@
 <template>
-    <div class="daisy-card bg-app-white desktop:daisy-card-side desktop:p-6 desktop:items-center">
-        <figure class="desktop:order-last">
+    <div class="daisy-card bg-app-white desktop:daisy-card-side desktop:p-6 desktop:items-center desktop:gap-6 desktop:max-w-[930px]">
+        <figure class="desktop:order-last desktop:flex-1">
             <img v-if="isDesktop" class="w-full" src="/src/assets/images/illustration-sign-up-desktop.svg" alt="">
             <img v-else class="w-full" src="/src/assets/images/illustration-sign-up-mobile.svg" alt="">
         </figure>
-        <div class="daisy-card-body text-app-darkNavy">
+        <div class="daisy-card-body text-app-darkNavy desktop:flex-1">
             <div class="flex flex-col gap-6">
 
                 <p class="daisy-card-title app-text-heading">Stay updated!</p>
@@ -20,9 +20,9 @@
             </div>
             <form @submit.prevent="submitEmail" class="flex flex-col gap-6">
                 <label class="daisy-label flex flex-col gap-2 items-start">
-                    <div class="flex justify-between w-full app-body-small">
-                        <span>Email address</span>
-                        <span aria-live="polite" v-if="emailError" class="text-app-vermellion">{{ emailError }}</span>
+                    <div class="flex justify-between w-full app-body-small gap-4">
+                        <span class=" text-nowrap">Email address</span>
+                        <span aria-live="polite" v-if="emailError" class="text-app-vermellion break-all">{{ emailError }}</span>
                     </div>
                     <input name="emailAddr" type="email" placeholder="email@company.com" @input="emailError=null"  @invalid.prevent="invalidEmail"
                         :class="['daisy-input text-app-grey app-text-body border-app-grey border-opacity-25 w-full placeholder:text-opacity-25',

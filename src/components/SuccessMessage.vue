@@ -1,6 +1,6 @@
 <template>
 
-    <div class="daisy-card bg-app-white">
+    <div class="daisy-card bg-app-white desktop:max-w-[505px]">
         <div class="daisy-card-body text-app-darkNavy gap-8">
             <div class="grow flex flex-col items-start justify-center gap-8">
                 <img src="/src/assets/images/icon-success.svg" alt="">
